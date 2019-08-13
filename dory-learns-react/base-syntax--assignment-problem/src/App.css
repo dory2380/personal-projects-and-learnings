@@ -1,0 +1,35 @@
+.App {
+  margin: 16px;
+  font-family: monospace;
+  font-size: 12px;
+  color: grey;
+}
+
+h1 {
+  font-size: 20px;
+  font-stretch: semi-expanded;
+}
+
+p {
+  font-size: 12px;
+}
+
+input {
+  margin-top: 5px;
+  font-size: 12px;
+  color: grey;
+}
+
+.user {
+  padding: 8px;
+  border: solid rgba(163,221,233,.76);
+  margin-bottom: 20px;
+  box-shadow: 8px 8px 1px 1px rgba(0, 0, 255, .2);
+}
+
+.userinput {
+  box-shadow: 8px 8px 1px 1px rgba(241,209,39,.94);
+}
+
+.useroutput {
+}

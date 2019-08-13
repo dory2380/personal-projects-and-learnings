@@ -1,0 +1,11 @@
+
+<nav>
+  <div>
+      <a routerLink="/home">Home</a>
+      <a *ngIf="isLoggedIn" routerLink="/login">Logout</a>
+      <a *ngIf="!isLoggedIn" (click)="onLogout()" routerLink="/login">Login</a>
+        <!-- <button class="button" *ngIf="isLoggedIn"(click)="onLogout()">Logout</button> -->
+        <!-- <button class="button" *ngIf="!isLoggedIn"(click)="onLogin()">Login</button> -->
+    </div>
+  </nav>
+<!-- <a routerLink='/'>Timeline</a> -->

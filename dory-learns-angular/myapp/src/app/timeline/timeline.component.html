@@ -1,0 +1,7 @@
+<div *ngIf="loadedPosts.length==0">
+  <p>no posts! please wait for data to load</p>
+</div>
+
+<div *ngFor="let post of loadedPosts">
+  <app-post *ngIf="post.published" [post] = "post"></app-post>
+</div>

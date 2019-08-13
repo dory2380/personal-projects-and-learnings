@@ -1,0 +1,23 @@
+:host {
+  display: block;
+  padding: 10px;
+}
+
+.button {
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border: 2px solid #4CAF50; /* Green */
+}
+
+.button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+a {
+  padding: 5px;
+}

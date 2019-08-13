@@ -1,0 +1,36 @@
+<h1>Home</h1>
+
+<!-- if the users have data in 'users', show this ul element-->
+<ul *ngIf="users">
+  <!-- to iterate through a list of objects, use *ngFor -->
+  <li *ngFor="let user of users.data">
+    <img [src]="user.avatar">
+    <p>{{user.first_name}} {{user.last_name}}</p>
+  </li>
+</ul>
+
+
+
+
+
+
+<!-- <h1 [class.gray]='h1Style'>Home</h1> -->
+
+<!-- <h1 [ngClass]="{
+  'gray': h1Style,
+  'large': !h1Style
+}">Home</h1> -->
+
+<!-- inline style with stating the css property -->
+<!-- <h1 [style.color]="h1Style ? 'gray' : 'black'">Home</h1> -->
+
+<!-- inline styling more than one css property -->
+<!-- <h1 [ngStyle]="{
+  'color' : h1Style ? 'gray' : 'black',
+  'font-size' : h1Style ? '4em' : '1em'
+}">Home</h1> -->
+
+<!-- <button (click)="firstClick()">Click me</button> -->
+<!-- other methods: https://coursetro.com/posts/code/171/Angular-7-Tutorial---Learn-Angular-7-by-Example -->
+<!-- [] is attribute binding, class gray is applied when the attribute h1Style is true -->
+<!-- () is method binding? -->
