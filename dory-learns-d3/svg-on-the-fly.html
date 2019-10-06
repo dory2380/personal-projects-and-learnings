@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SVG on the fly</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+    <button onclick="addSVG()">Add SVG</button><br />
+    <script>
+        addSVG = () => {
+            let svg = d3.select("body").append("svg").attr("width", 200).attr("height", 200)
+            .style("background", "pink");
+            
+        svg.append("rect").attr("width", 50).attr("height", 50).style("fill", "indigo")
+        // svg.append("circle").attr("r", 20),attr("cx", 100).attr("cy", 100);
+
+        svg.append("g").attr("transform", "translate(35, 100)")
+            .append("circle").attr("r", 20)
+        }
+
+        // let svg = d3.select("body").append("svg").attr("width", 200).attr("height", 200)
+        //     .style("background", "pink");
+            
+        // svg.append("rect").attr("width", 50).attr("height", 50).style("fill", "indigo")
+        // // svg.append("circle").attr("r", 20),attr("cx", 100).attr("cy", 100);
+
+        // svg.append("g").attr("transform", "translate(35, 100)")
+        //     .append("circle").attr("r", 20)
+    </script>
+
+</body>
+</html>

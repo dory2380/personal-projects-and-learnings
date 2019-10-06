@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+    <script>
+        const numbers = [31,25,35,18,9,14];
+        const height = 500;
+        const width = 600; 
+        let svg = d3.select("body").append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .style("background", "pink");
+        
+        let rectangles = svg.selectAll("rect").data(numbers);
+        rectangles.enter().append("rect")
+            .attr("width", 25)
+            .attr("height", d => d*10)
+            .attr("x", (d,i) => i*28)
+            .attr("y", d => height - (d*10))
+            .style("fill", "indigo");
+        
+        let data = svg.selectAll("text").data(numbers);
+        data.enter().append("text")
+            .text(d => d)
+            .style("stroke", "purple")
+            .style("font-size", "15px")
+            .attr("x", (d,i) => 5 + (i*28))
+            .attr("y", (d, i) =>  height -5 - (d*10));
+        
+    </script>
+    
+</body>
+</html>

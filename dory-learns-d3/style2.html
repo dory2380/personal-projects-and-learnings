@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Class</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <style>
+        .changeColor {
+            stroke: indigo;
+            fill: deeppink;
+            stroke-width: 4;
+        }
+
+        .boxes {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            background: pink;
+            float: left;
+            margin: 10px;
+
+        }
+    </style>
+
+    
+</head>
+<body>
+    <button onclick="addClass()">Change</button> <br />
+    <button onclick="changeBack()">Back</button> <br />
+    <svg width="500" height="200">
+        <circle cx="50" cy="50" r="40"></circle>
+        <circle cx="140" cy="50" r="40"></circle>
+        <circle cx="230" cy="50" r="40"></circle>
+        <circle cx="320" cy="50" r="40"></circle>
+    </svg>
+    <button onclick="addBoxes()">Add Boxes</button>
+    <div id="parent">
+        <div></div>
+        <div></div>
+        <div></div>
+
+
+    </div>
+    <script>
+        addClass = () => d3.selectAll("circle").classed("changeColor", true);
+
+        changeBack = () => d3.selectAll("circle")
+            .classed("changeColor", (data, index) => index % 2 == 0 ? true : false)
+
+        addBoxes = () => d3.selectAll("#parent > div").classed("boxes", true)
+        // addBoxes = () => d3.select("#parent").selectAll("div").classed("boxes", true)
+    </script>
+</body>
+</html>

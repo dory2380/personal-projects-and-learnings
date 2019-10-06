@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Attribute</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+    <button onclick="update()"> Update</button><br/><br/>
+    <input type="checkbox"><br/><br/>
+    <svg width="600" height="600">
+        <g transform="translate(40,40)">
+            <circle r="40" ></circle>
+            <circle r="40" cx="120" ></circle>
+            <circle r="40" cx="240" ></circle>
+            <circle r="40" cx="360"></circle>
+            <circle r="40" cx="480"></circle>
+
+        </g>
+    </svg>
+    <script>
+        // update = ()  => d3.selectAll("circle").attr("r", "10")
+
+        // update = ()  => d3.selectAll("circle").attr("cy", (d,i) => i*50)
+
+        update = () => d3.select("input[type=checkbox]").property("checked",true)
+    </script>
+</body>
+</html>

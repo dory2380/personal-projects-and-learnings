@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <title>Join Data</title>
+    <style>
+        .changeColor {
+            background: deeppink;
+            color: indigo;
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+
+    <script>
+        let myData = [20, 25, 30, 35, 40]
+
+        d3.selectAll("p").data(myData)
+        .text( (d,i) => d)
+        .style("font-size", (d) => d +"px")
+        .classed('changeColor', d => d > 30);
+    </script>
+
+</body>
+</html>

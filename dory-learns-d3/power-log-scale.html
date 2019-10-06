@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Power Log Scale</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+    <script>
+        const numbers = [2,3,4,5,6,7,8,9,10];
+        const numbers1 = [100,1000,10000,100000, 100000, 1000000];
+
+        const myNumbers = [12, 43, 32, 27, 9, 50, 18, 22]
+        const height = 500;
+        const width = 600; 
+        const powerScale = d3.scalePow().exponent(2)
+                    .domain([0, 15])
+                    .range([0, height]);
+        
+        const logScale = d3.scaleLog().base(2)
+                    .domain([10, 10000000])
+                    .range([0, height]);
+
+        const colorScale = d3.scaleLinear()
+                        .domain([
+                            d3.min(numbers, d => d), 
+                            d3.max(numbers, d => d)
+                        ])
+                        .range(["silver", "green"]) // pixels in range
+
+        let svg = d3.select("body").append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .style("background", "pink");
+        
+        let rectangles = svg.selectAll("rect").data(numbers1);
+        rectangles.enter().append("rect")
+            .attr("width", 25)
+            .attr("height", d => logScale(d))
+            .attr("x", (d,i) => i*28)
+            .attr("y", d => height - logScale(d))
+            .style("fill", d => colorScale(d));
+        
+    </script>
+    
+</body>
+</html>

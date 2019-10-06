@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Append & Insert</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+    <button onclick="addElement()">Add Element</button>
+    <div id="parent">
+        <p>1 Paragraph</p>
+        <p>2 Paragraph</p>
+        <p>3 Paragraph</p>
+    </div>
+
+    <script>
+        // update = () => {
+        //     d3.select("p").text("New Content")
+        //     d3.select("div").html("<b>New Content</b>")
+        //     d3.select("span").text("New Span Content")
+        // }
+
+        addElement = () => {
+            d3.select("#parent").append("p").text("4 Last Paragraph").style("font-weight", "bold");
+            // d3.select("#parent").insert("p","p:nth-child(1)").text("0 First Paragraph").style("font-weight", "bold"); // added before the first element
+            d3.select("#parent").insert("p","p").text("0 First Paragraph").style("font-weight", "bold"); // added before the first paragraph
+        }
+    </script>
+
+    <button onclick="update()">Update</button><br/><br/>
+</body>
+</html>

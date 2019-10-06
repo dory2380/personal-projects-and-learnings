@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <style>
+        div {
+            height: 25px;
+            margin: 10px;
+            background: pink;
+            color: red;
+            text-align: center;
+            line-height: 25px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let numbers = [35, 25, 35, 18, 9, 14];
+        var bars = d3.select("body").selectAll("div").data(numbers);
+        bars.enter().append("div")
+            .style("width", d => d*10 + "px")
+            .text(d => d)
+    </script>
+</body>
+</html>

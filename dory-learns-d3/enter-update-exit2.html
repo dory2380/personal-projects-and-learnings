@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SVG: Enter Update Exit</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+    <script>
+        let length = [25, 45, 65, 85];
+        let svg = d3.select("body")
+            .append("svg")
+            .attr("width", 800)
+            .attr("height", 600)
+            .style("background", "pink");
+
+        let squares = svg.selectAll("rect").data(length);
+        squares.enter().append("rect")
+            .attr("width", d => d)
+            // .attr("height", d => d)
+            .attr("height", d => 2*d)
+            .attr("x", (d,i) => 2*(i+1)*d)
+            .attr("y", (d,i) => (i+1)*80)
+            .style("fill", "deeppink")
+            .style("stroke", "indigo")
+            .style("stroke-width", 5);
+    </script>
+    
+</body>
+</html>
