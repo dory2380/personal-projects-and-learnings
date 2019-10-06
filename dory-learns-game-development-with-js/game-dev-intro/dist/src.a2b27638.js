@@ -131,7 +131,10 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-// Paddle class represents the game paddle we control to bounce the ball back
+/**
+ * Paddle class represents the game paddle we control to 
+ * bounce the ball back
+ */
 var Paddle =
 /*#__PURE__*/
 function () {
@@ -146,7 +149,11 @@ function () {
       x: gameWidth / 2 - this.width / 2,
       y: gameHeight - this.height - 10
     };
-  } // Draw the paddle
+  }
+  /**
+   * Draw the paddle
+   * @param {*} context 
+   */
 
 
   _createClass(Paddle, [{
@@ -154,6 +161,22 @@ function () {
     value: function draw(context) {
       context.fillStyle = 'skyblue';
       context.fillRect(this.position.x, this.position.y, this.width, this.height);
+    }
+    /**
+     * Change the board right 5px per second,
+     * @param {*} deltaTime is the time since last update
+     */
+
+  }, {
+    key: "update",
+    value: function update(deltaTime) {
+      // The first time the game is run, there is no deltaTime passed to gameLoop, so deltaTime here will be null
+      if (!deltaTime) {
+        return;
+      } // 5 px divided by how much time has passed
+
+
+      this.position.x += 5 / deltaTime;
     }
   }]);
 
@@ -174,13 +197,31 @@ var canvas = document.getElementById('gameScreen');
 var context = canvas.getContext('2d'); // Game constants
 
 var GAME_WIDTH = 800;
-var GAME_HEIGHT = 600; // Clearing the canvas
-
-context.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT); // Create game elements
+var GAME_HEIGHT = 600; // Create game elements
 
 var paddle = new _paddle.default(GAME_WIDTH, GAME_HEIGHT); // Draw the paddle
 
-paddle.draw(context);
+paddle.draw(context); // Last time game got updated
+
+var lastTime = 0;
+/**
+ * Main game loop
+ * @param {*} timestamp 
+ */
+
+function gameLoop(timestamp) {
+  // Calculate how much time has passed
+  var deltaTime = timestamp - lastTime;
+  lastTime = timestamp; // Clearing the canvas and update paddle
+
+  context.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+  paddle.update(deltaTime);
+  paddle.draw(context); // When the next frame is ready, called this function and pass the timestamp!
+
+  requestAnimationFrame(gameLoop);
+}
+
+gameLoop();
 },{"./paddle":"src/paddle.js"}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
