@@ -131,7 +131,6 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-// Paddle class represents the game paddle we control to bounce the ball back
 var Paddle =
 /*#__PURE__*/
 function () {
@@ -139,20 +138,16 @@ function () {
     _classCallCheck(this, Paddle);
 
     this.width = 150;
-    this.height = 20; // The x is half the game screen - half the board
-    // The y is the game screen - height of the paddle - 10 just for space beneath
-
+    this.height = 30;
     this.position = {
       x: gameWidth / 2 - this.width / 2,
       y: gameHeight - this.height - 10
     };
-  } // Draw the paddle
-
+  }
 
   _createClass(Paddle, [{
     key: "draw",
     value: function draw(context) {
-      context.fillStyle = 'skyblue';
       context.fillRect(this.position.x, this.position.y, this.width, this.height);
     }
   }]);
@@ -161,27 +156,7 @@ function () {
 }();
 
 exports.default = Paddle;
-},{}],"src/index.js":[function(require,module,exports) {
-"use strict";
-
-var _paddle = _interopRequireDefault(require("./paddle"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// Import other game elements
-// Grab canvas from HTML document and set up context to be 2d
-var canvas = document.getElementById('gameScreen');
-var context = canvas.getContext('2d'); // Game constants
-
-var GAME_WIDTH = 800;
-var GAME_HEIGHT = 600; // Clearing the canvas
-
-context.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT); // Create game elements
-
-var paddle = new _paddle.default(GAME_WIDTH, GAME_HEIGHT); // Draw the paddle
-
-paddle.draw(context);
-},{"./paddle":"src/paddle.js"}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -384,5 +359,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.js"], null)
-//# sourceMappingURL=/src.a2b27638.js.map
+},{}]},{},["../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/paddle.js"], null)
+//# sourceMappingURL=/paddle.94ba2be3.js.map
